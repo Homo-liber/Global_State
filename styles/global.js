@@ -17,6 +17,11 @@ export const globalStyles = StyleSheet.create({
     color: COLORS.accent,
     marginBottom: 12,
   },
+  h2: {
+    fontSize: 20,
+    color: COLORS.light,
+    marginBottom: 8,
+  },
   link: {
     fontSize: 18,
     color: COLORS.accent,
