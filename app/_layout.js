@@ -1,4 +1,4 @@
-import { Tabs } from "expo-router";
+import { Tabs, router } from "expo-router";
 import { COLORS } from "../styles/constants";
 import { Ionicons } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
@@ -7,6 +7,7 @@ import {
   EBGaramond_400Regular,
   EBGaramond_700Bold,
 } from "@expo-google-fonts/eb-garamond";
+import { Button, View } from "react-native";
 
 export default function RootLayout() {
   const [fontsLoaded, fontError] = useFonts({
@@ -31,6 +32,19 @@ export default function RootLayout() {
           backgroundColor: COLORS.dark,
         },
         tabBarActiveTintColor: COLORS.accent,
+        headerRight: () => {
+          return (
+            <View style={{ paddingRight: 12 }}>
+              <Button
+                onPress={() => {
+                  router.push("login");
+                }}
+                color={COLORS.accent}
+                title="Login"
+              />
+            </View>
+          );
+        },
       }}
     >
       <Tabs.Screen

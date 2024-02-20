@@ -27,4 +27,10 @@ export const globalStyles = StyleSheet.create({
     fontSize: 18,
     color: COLORS.accent,
   },
+  input: {
+    backgroundColor: COLORS.light,
+    color: COLORS.dark,
+    padding: 12,
+    borderRadius: 6,
+  },
 });

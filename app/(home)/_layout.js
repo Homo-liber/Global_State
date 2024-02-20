@@ -9,7 +9,7 @@ export default function HomeStack() {
     >
       <Stack.Screen name="index" />
       <Stack.Screen
-        name="modal"
+        name="login"
         options={{
           presentation: "modal",
         }}
