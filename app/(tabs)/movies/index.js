@@ -1,7 +1,7 @@
 import { ScrollView, View, Text } from "react-native";
 import { Link } from "expo-router";
-import { globalStyles } from "../../styles/global";
-import { movies } from "../../data/movies";
+import { globalStyles } from "../../../styles/global";
+import { movies } from "../../../data/movies";
 import { Image } from "expo-image";
 
 export default function MoviePage() {

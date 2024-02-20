@@ -1,5 +1,5 @@
 import { Stack } from "expo-router";
-import { COLORS } from "../../styles/constants";
+import { COLORS } from "../../../styles/constants";
 import { View, Button } from "react-native";
 import { router } from "expo-router";
 

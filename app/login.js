@@ -1,9 +1,11 @@
 import { View, Text, TextInput, Button } from "react-native";
-import { globalStyles } from "../../styles/global";
-import { COLORS } from "../../styles/constants";
+import { globalStyles } from "../styles/global";
+import { COLORS } from "../styles/constants";
 import { useState } from "react";
+import { router } from "expo-router";
 
 export default function Login() {
+  const showBackButton = router.canGoBack();
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
 
@@ -28,11 +30,20 @@ export default function Login() {
       />
       <Button
         onPress={() => {
-          alert(`Username: ${name} Password: ?${password}`);
+          alert(`Username: ${name} Password: ${password}`);
         }}
         color={COLORS.accent}
         title="Submit"
       />
+      {showBackButton && (
+        <Button
+          title="Cancel"
+          color={COLORS.grey}
+          onPress={() => {
+            router.back();
+          }}
+        />
+      )}
     </View>
   );
 }

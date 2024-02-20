@@ -1,15 +1,11 @@
-import { Tabs, router } from "expo-router";
-import { COLORS } from "../styles/constants";
-import { Ionicons } from "@expo/vector-icons";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { Stack } from "expo-router";
 import {
   useFonts,
   EBGaramond_400Regular,
   EBGaramond_700Bold,
 } from "@expo-google-fonts/eb-garamond";
-import { Button, View } from "react-native";
 
-export default function RootLayout() {
+export default function MainStack() {
   const [fontsLoaded, fontError] = useFonts({
     EBGaramond_400Regular,
     EBGaramond_700Bold,
@@ -17,61 +13,19 @@ export default function RootLayout() {
   if (!fontsLoaded && !fontError) {
     return null;
   }
-
   return (
-    <Tabs
+    <Stack
       screenOptions={{
-        headerShadowVisible: false,
-        headerStyle: {
-          backgroundColor: COLORS.dark,
-        },
-        headerTitleStyle: {
-          color: COLORS.grey,
-        },
-        tabBarStyle: {
-          backgroundColor: COLORS.dark,
-        },
-        tabBarActiveTintColor: COLORS.accent,
-        headerRight: () => {
-          return (
-            <View style={{ paddingRight: 12 }}>
-              <Button
-                onPress={() => {
-                  router.push("login");
-                }}
-                color={COLORS.accent}
-                title="Login"
-              />
-            </View>
-          );
-        },
+        headerShown: false,
       }}
     >
-      <Tabs.Screen
-        name="(home)"
+      <Stack.Screen name="(tabs)" />
+      <Stack.Screen
+        name="login"
         options={{
-          title: "Home",
-          tabBarIcon: ({ color }) => {
-            return <Ionicons name="home-outline" size={24} color={color} />;
-          },
+          presentation: "modal",
         }}
       />
-      <Tabs.Screen
-        name="movies"
-        options={{
-          title: "Movies",
-          headerShown: false,
-          tabBarIcon: ({ color }) => {
-            return (
-              <MaterialCommunityIcons
-                name="movie-open-outline"
-                size={24}
-                color={color}
-              />
-            );
-          },
-        }}
-      />
-    </Tabs>
+    </Stack>
   );
 }
