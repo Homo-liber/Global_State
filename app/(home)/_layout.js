@@ -1,23 +1,19 @@
 import { Stack } from "expo-router";
-import { COLORS } from "../../styles/constants";
 
-export default function HomeLayout() {
+export default function HomeStack() {
   return (
     <Stack
       screenOptions={{
-        headerShadowVisible: false,
-        headerStyle: {
-          backgroundColor: COLORS.dark,
-        },
-        headerTitleStyle: {
-          color: COLORS.grey,
-        },
-        headerBackTitleVisible: false,
-        headerTintColor: COLORS.grey,
+        headerShown: false,
       }}
     >
-      <Stack.Screen name="index" options={{ title: "Home" }} />
-      <Stack.Screen name="modal" options={{ title: "Login" }} />
+      <Stack.Screen name="index" />
+      <Stack.Screen
+        name="modal"
+        options={{
+          presentation: "modal",
+        }}
+      />
     </Stack>
   );
 }
