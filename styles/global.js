@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { COLORS } from "./constants";
+import { COLORS, FONTS } from "./constants";
 
 export const globalStyles = StyleSheet.create({
   container: {
@@ -16,6 +16,7 @@ export const globalStyles = StyleSheet.create({
     fontSize: 42,
     color: COLORS.accent,
     marginBottom: 12,
+    fontFamily: FONTS.serifBold,
   },
   h2: {
     fontSize: 20,

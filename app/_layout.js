@@ -2,8 +2,21 @@ import { Tabs } from "expo-router";
 import { COLORS } from "../styles/constants";
 import { Ionicons } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import {
+  useFonts,
+  EBGaramond_400Regular,
+  EBGaramond_700Bold,
+} from "@expo-google-fonts/eb-garamond";
 
 export default function RootLayout() {
+  const [fontsLoaded, fontError] = useFonts({
+    EBGaramond_400Regular,
+    EBGaramond_700Bold,
+  });
+  if (!fontsLoaded && !fontError) {
+    return null;
+  }
+
   return (
     <Tabs
       screenOptions={{
@@ -21,7 +34,7 @@ export default function RootLayout() {
       }}
     >
       <Tabs.Screen
-        name="index"
+        name="(home)"
         options={{
           title: "Home",
           tabBarIcon: ({ color }) => {

@@ -5,3 +5,14 @@ export const COLORS = {
   light: "#FAFFFD",
   grey: "#999999",
 };
+
+export const FONTS = {
+  serif: "EBGaramond_400Regular",
+  serifBold: "EBGaramond_700Bold",
+};
+
+export const SPACINGS = {
+  paddingSmall: 6,
+  paddingMedium: 12,
+  paddingLarge: 24,
+};
