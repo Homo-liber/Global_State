@@ -1,4 +1,10 @@
-import { View, Text, TextInput, Button } from "react-native";
+import {
+  Platform,
+  Text,
+  TextInput,
+  Button,
+  KeyboardAvoidingView,
+} from "react-native";
 import { globalStyles } from "../styles/global";
 import { COLORS } from "../styles/constants";
 import { useState } from "react";
@@ -10,17 +16,24 @@ export default function Login() {
   const [password, setPassword] = useState("");
 
   return (
-    <View style={[globalStyles.container, { gap: 12, alignItems: "center" }]}>
+    <KeyboardAvoidingView
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      style={[
+        globalStyles.container,
+        { gap: 12, alignItems: "center", justifyContent: "center" },
+      ]}
+    >
       <Text style={globalStyles.h1}>Login</Text>
       <TextInput
+        placeholder="User name"
         onChangeText={(text) => {
-          console.log("onTextChange");
           setName(text);
         }}
         value={name}
         style={[globalStyles.input, { width: "60%" }]}
       />
       <TextInput
+        placeholder="Password"
         onChangeText={(text) => {
           setPassword(text);
         }}
@@ -44,6 +57,6 @@ export default function Login() {
           }}
         />
       )}
-    </View>
+    </KeyboardAvoidingView>
   );
 }

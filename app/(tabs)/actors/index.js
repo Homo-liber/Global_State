@@ -1,21 +1,20 @@
 import { ScrollView, View, Text } from "react-native";
 import { Link } from "expo-router";
 import { globalStyles } from "../../../styles/global";
-import { movies } from "../../../data/movies";
-import { Image } from "expo-image";
+import { actors } from "../../../data/actors";
 import { AutoHeightImage } from "../../../components/AutoHeightImage";
 
-export default function MoviePage() {
+export default function ActorsPage() {
   return (
     <ScrollView style={globalStyles.container}>
       <View style={{ paddingBottom: 20 }}>
-        <Text style={globalStyles.h1}>All time favorites</Text>
+        <Text style={globalStyles.h1}>Great actors</Text>
         <View style={{ gap: 12 }}>
-          {movies.map((movie) => {
+          {actors.map((actor) => {
             return (
               <Link
-                key={movie.id}
-                href={`movies/${movie.id}`}
+                key={actor.id}
+                href={`actors/${actor.id}`}
                 style={globalStyles.link}
               >
                 <View
@@ -26,11 +25,11 @@ export default function MoviePage() {
                   }}
                 >
                   <AutoHeightImage
-                    source={movie.thumbnail}
+                    source={actor.image}
                     style={{ width: 120 }}
                     contentFit="contain"
                   />
-                  <Text style={globalStyles.h2}>{movie.title}</Text>
+                  <Text style={globalStyles.h2}>{actor.name}</Text>
                 </View>
               </Link>
             );

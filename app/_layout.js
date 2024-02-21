@@ -1,14 +1,14 @@
 import { Stack } from "expo-router";
 import {
   useFonts,
-  EBGaramond_400Regular,
-  EBGaramond_700Bold,
-} from "@expo-google-fonts/eb-garamond";
+  NotoSansDisplay_400Regular,
+  NotoSansDisplay_700Bold,
+} from "@expo-google-fonts/noto-sans-display";
 
 export default function MainStack() {
   const [fontsLoaded, fontError] = useFonts({
-    EBGaramond_400Regular,
-    EBGaramond_700Bold,
+    NotoSansDisplay_400Regular,
+    NotoSansDisplay_700Bold,
   });
   if (!fontsLoaded && !fontError) {
     return null;

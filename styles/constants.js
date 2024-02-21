@@ -7,8 +7,8 @@ export const COLORS = {
 };
 
 export const FONTS = {
-  serif: "EBGaramond_400Regular",
-  serifBold: "EBGaramond_700Bold",
+  sansSerif: "NotoSansDisplay_400Regular",
+  sansSerifBold: "NotoSansDisplay_700Bold",
 };
 
 export const SPACINGS = {

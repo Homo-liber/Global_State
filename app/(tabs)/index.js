@@ -1,11 +1,11 @@
-import { View, Text } from "react-native";
+import { Text, ScrollView } from "react-native";
 import { Link } from "expo-router";
 import { globalStyles } from "../../styles/global";
 
 export default function HomePage() {
   return (
-    <View style={globalStyles.container}>
-      <Text style={[globalStyles.h1]}>Homepage</Text>
+    <ScrollView style={globalStyles.container}>
+      <Text style={[globalStyles.h1]}>World of movies</Text>
       <Text style={globalStyles.p}>
         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
         eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
@@ -14,11 +14,11 @@ export default function HomePage() {
         amet.
       </Text>
       <Link style={globalStyles.link} href="movies">
-        Movies
+        → Movies
       </Link>
-      <Link style={globalStyles.link} href="login">
-        Login
+      <Link style={globalStyles.link} href="actors">
+        → Actors
       </Link>
-    </View>
+    </ScrollView>
   );
 }

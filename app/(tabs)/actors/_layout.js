@@ -3,7 +3,7 @@ import { COLORS } from "../../../styles/constants";
 import { View, Button } from "react-native";
 import { router } from "expo-router";
 
-export default function MoviesStack() {
+export default function ActorsStack() {
   return (
     <Stack
       screenOptions={{
@@ -31,7 +31,7 @@ export default function MoviesStack() {
         },
       }}
     >
-      <Stack.Screen name="index" options={{ title: "Movies" }} />
+      <Stack.Screen name="index" options={{ title: "Actors" }} />
       <Stack.Screen name="[id]" options={{ title: "Details" }} />
     </Stack>
   );

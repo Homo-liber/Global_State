@@ -2,10 +2,11 @@ import { Tabs, router } from "expo-router";
 import { COLORS } from "../../styles/constants";
 import { Ionicons } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { Feather } from "@expo/vector-icons";
 
 import { Button, View } from "react-native";
 
-export default function RootLayout() {
+export default function MainTabs() {
   return (
     <Tabs
       screenOptions={{
@@ -57,6 +58,16 @@ export default function RootLayout() {
                 color={color}
               />
             );
+          },
+        }}
+      />
+      <Tabs.Screen
+        name="actors"
+        options={{
+          title: "Actors",
+          headerShown: false,
+          tabBarIcon: ({ color }) => {
+            return <Feather name="star" size={24} color={color} />;
           },
         }}
       />
