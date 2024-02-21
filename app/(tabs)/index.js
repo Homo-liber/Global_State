@@ -1,6 +1,7 @@
-import { Text, ScrollView } from "react-native";
+import { Text, ScrollView, Button } from "react-native";
 import { Link } from "expo-router";
 import { globalStyles } from "../../styles/global";
+import { COLORS } from "../../styles/constants";
 
 export default function HomePage() {
   return (
@@ -13,11 +14,11 @@ export default function HomePage() {
         clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
         amet.
       </Text>
-      <Link style={globalStyles.link} href="movies">
-        → Movies
+      <Link asChild style={globalStyles.link} href="movies">
+        <Button color={COLORS.accent} title="Movies" />
       </Link>
-      <Link style={globalStyles.link} href="actors">
-        → Actors
+      <Link asChild style={globalStyles.link} href="actors">
+        <Button color={COLORS.accent} title="Actors" />
       </Link>
     </ScrollView>
   );

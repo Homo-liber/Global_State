@@ -22,6 +22,7 @@ export default function ActorsPage() {
                   style={{
                     flexDirection: "row",
                     alignItems: "center",
+                    maxWidth: "100%",
                     gap: 12,
                   }}
                 >
@@ -30,7 +31,9 @@ export default function ActorsPage() {
                     style={{ width: 120 }}
                     contentFit="contain"
                   />
-                  <Text style={globalStyles.h2}>{actor.name}</Text>
+                  <Text style={[globalStyles.h2, { flex: 1 }]}>
+                    {actor.name}
+                  </Text>
                 </Pressable>
               </Link>
             );
