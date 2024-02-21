@@ -1,4 +1,4 @@
-import { ScrollView, View, Text } from "react-native";
+import { ScrollView, View, Text, Pressable } from "react-native";
 import { Link } from "expo-router";
 import { globalStyles } from "../../../styles/global";
 import { actors } from "../../../data/actors";
@@ -16,8 +16,9 @@ export default function ActorsPage() {
                 key={actor.id}
                 href={`actors/${actor.id}`}
                 style={globalStyles.link}
+                asChild
               >
-                <View
+                <Pressable
                   style={{
                     flexDirection: "row",
                     alignItems: "center",
@@ -30,7 +31,7 @@ export default function ActorsPage() {
                     contentFit="contain"
                   />
                   <Text style={globalStyles.h2}>{actor.name}</Text>
-                </View>
+                </Pressable>
               </Link>
             );
           })}

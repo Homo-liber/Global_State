@@ -1,4 +1,4 @@
-import { ScrollView, View, Text } from "react-native";
+import { ScrollView, View, Text, Pressable } from "react-native";
 import { Link } from "expo-router";
 import { globalStyles } from "../../../styles/global";
 import { movies } from "../../../data/movies";
@@ -16,13 +16,15 @@ export default function MoviePage() {
               <Link
                 key={movie.id}
                 href={`movies/${movie.id}`}
-                style={globalStyles.link}
+                style={[globalStyles.link]}
+                asChild
               >
-                <View
+                <Pressable
                   style={{
                     flexDirection: "row",
                     alignItems: "center",
                     gap: 12,
+                    maxWidth: "100%",
                   }}
                 >
                   <AutoHeightImage
@@ -30,8 +32,10 @@ export default function MoviePage() {
                     style={{ width: 120 }}
                     contentFit="contain"
                   />
-                  <Text style={globalStyles.h2}>{movie.title}</Text>
-                </View>
+                  <Text style={[globalStyles.h2, { flex: 1 }]}>
+                    {movie.title}
+                  </Text>
+                </Pressable>
               </Link>
             );
           })}
