@@ -15,55 +15,60 @@ export default function MovieDetailPage() {
   const movie = movies.find((movie) => movie.id === Number(id));
 
   return (
-    <ScrollView style={globalStyles.container}>
-      <Text style={globalStyles.h1}>{movie.title}</Text>
-      <Text style={globalStyles.h2}>{movie.tagline}</Text>
-      <AutoHeightImage
-        source={movie.image}
-        style={{
-          width: "100%",
-        }}
-      />
-      <View style={{ marginTop: 20 }}>
-        {movie.cast.map((castMember) => {
-          const actor = actors.find((actor) => castMember.id === actor.id);
-          return (
-            <View
-              key={castMember.id}
-              style={{ flexDirection: "row", width: "100%", gap: 12 }}
-            >
-              <Text style={[globalStyles.p, { flex: 1 }]}>
-                {castMember.character}
-              </Text>
-              <Pressable
-                style={[
-                  {
-                    flex: 1,
-                  },
-                ]}
-                onPress={() => {
-                  navigation.navigate("actors", {
-                    screen: "[id]",
-                    params: { id: actor.id },
-                    initial: false,
-                  });
-                }}
+    <ScrollView style={[globalStyles.container]}>
+      <View style={{ paddingBottom: 32 }}>
+        <View>
+          <Text style={globalStyles.h1}>{movie.title}</Text>
+          <Text style={globalStyles.h2}>{movie.tagline}</Text>
+        </View>
+        <AutoHeightImage
+          source={movie.image}
+          style={{
+            width: "100%",
+            marginTop: 12,
+          }}
+        />
+        <View style={{ marginTop: 20 }}>
+          {movie.cast.map((castMember) => {
+            const actor = actors.find((actor) => castMember.id === actor.id);
+            return (
+              <View
+                key={castMember.id}
+                style={{ flexDirection: "row", width: "100%", gap: 12 }}
               >
-                <Text
+                <Text style={[globalStyles.p, { flex: 1 }]}>
+                  {castMember.character}
+                </Text>
+                <Pressable
                   style={[
-                    globalStyles.p,
                     {
-                      color: COLORS.grey,
-                      textDecorationLine: "underline",
+                      flex: 1,
                     },
                   ]}
+                  onPress={() => {
+                    navigation.navigate("actors", {
+                      screen: "[id]",
+                      params: { id: actor.id },
+                      initial: false,
+                    });
+                  }}
                 >
-                  {actor?.name}
-                </Text>
-              </Pressable>
-            </View>
-          );
-        })}
+                  <Text
+                    style={[
+                      globalStyles.p,
+                      {
+                        color: COLORS.grey,
+                        textDecorationLine: "underline",
+                      },
+                    ]}
+                  >
+                    {actor?.name}
+                  </Text>
+                </Pressable>
+              </View>
+            );
+          })}
+        </View>
       </View>
     </ScrollView>
   );

@@ -7,7 +7,7 @@ import { AutoHeightImage } from "../../../components/AutoHeightImage";
 export default function ActorsPage() {
   return (
     <ScrollView style={globalStyles.container}>
-      <View style={{ paddingBottom: 20 }}>
+      <View style={{ paddingBottom: 32 }}>
         <Text style={globalStyles.h1}>Great actors</Text>
         <View style={{ gap: 12 }}>
           {actors.map((actor) => {

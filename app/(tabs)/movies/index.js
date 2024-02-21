@@ -8,7 +8,7 @@ import { AutoHeightImage } from "../../../components/AutoHeightImage";
 export default function MoviePage() {
   return (
     <ScrollView style={globalStyles.container}>
-      <View style={{ paddingBottom: 20 }}>
+      <View style={{ paddingBottom: 32 }}>
         <Text style={globalStyles.h1}>All time favorites</Text>
         <View style={{ gap: 12 }}>
           {movies.map((movie) => {
