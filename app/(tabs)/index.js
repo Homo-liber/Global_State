@@ -1,4 +1,4 @@
-import { Text, ScrollView, Button, Pressable } from "react-native";
+import { Text, View, ScrollView, Button, Pressable } from "react-native";
 import { Link } from "expo-router";
 import { globalStyles } from "../../styles/global";
 import { COLORS } from "../../styles/constants";
@@ -6,9 +6,11 @@ import { Typography } from "../../components/Typography";
 import { StyledButton } from "../../components/StyledButton";
 import { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
-
+import { LanguageContext } from "../../context/LanguageContext";
+// ????????????
 export default function HomePage() {
   const { user } = useContext(UserContext);
+  const { language, changeLanguage } = useContext(LanguageContext);
   console.log("user", user);
   return (
     <ScrollView style={globalStyles.container}>
@@ -38,6 +40,32 @@ export default function HomePage() {
       <Link asChild style={globalStyles.link} href="actors">
         <Button color={COLORS.accent} title="Actors" />
       </Link>
+
+      <View style={{ gap: 15 }}>
+        <Pressable
+          style={[
+            globalStyles.languagebutton,
+            { backgroundColor: language === "English" ? "blue" : undefined },
+          ]}
+          onPress={() => {
+            changeLanguage("English");
+          }}
+        >
+          <Text style={globalStyles.languagetext}>English</Text>
+        </Pressable>
+
+        <Pressable
+          onPress={() => {
+            changeLanguage("Deutsch");
+          }}
+          style={[
+            globalStyles.languagebutton,
+            { backgroundColor: language === "Deutsch" ? "blue" : undefined },
+          ]}
+        >
+          <Text style={globalStyles.languagetext}>Deutsch</Text>
+        </Pressable>
+      </View>
     </ScrollView>
   );
 }

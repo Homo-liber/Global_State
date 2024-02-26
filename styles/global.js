@@ -39,4 +39,13 @@ export const globalStyles = StyleSheet.create({
     fontFamily: FONTS.sansSerif,
     fontSize: 18,
   },
+  languagebutton: {
+    backgroundColor: "pink",
+    borderRadius: 5,
+    padding: 3,
+  },
+  languagetext: {
+    fontSize: 30,
+    textAlign: "center",
+  },
 });
