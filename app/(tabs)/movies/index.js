@@ -5,11 +5,13 @@ import { movies } from "../../../data/movies";
 import { Image } from "expo-image";
 import { AutoHeightImage } from "../../../components/AutoHeightImage";
 import { StyledButton } from "../../../components/StyledButton";
+import { useContext } from "react";
+import { UserContext } from "../../../context/UserContext";
 
 export default function MoviePage() {
+  const { logout } = useContext(UserContext);
   return (
     <ScrollView style={globalStyles.container}>
-      <StyledButton variant="primary">Test me</StyledButton>
       <View style={{ paddingBottom: 32 }}>
         <Text style={globalStyles.h1}>All time favorites</Text>
         <View style={{ gap: 12 }}>

@@ -10,7 +10,6 @@ export function StyledButton({
   ...restProps
 }) {
   const [isPressed, setIsPressed] = useState(false);
-  console.log(restProps);
   return (
     <Pressable
       style={[
@@ -20,14 +19,12 @@ export function StyledButton({
       ]}
       {...restProps}
       onPressIn={() => {
-        console.log("Inner Press In");
         setIsPressed(true);
         if (restProps.onPressIn) {
           restProps.onPressIn();
         }
       }}
       onPressOut={() => {
-        console.log("Inner Press Out");
         setIsPressed(false);
         if (restProps.onPressOut) {
           restProps.onPressOut();

@@ -7,10 +7,12 @@ import {
 } from "react-native";
 import { globalStyles } from "../styles/global";
 import { COLORS } from "../styles/constants";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { UserContext } from "../context/UserContext";
 import { router } from "expo-router";
 
 export default function Login() {
+  const { login } = useContext(UserContext);
   const showBackButton = router.canGoBack();
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
@@ -43,7 +45,10 @@ export default function Login() {
       />
       <Button
         onPress={() => {
-          alert(`Username: ${name} Password: ${password}`);
+          login(name, password);
+          if (showBackButton) {
+            router.back();
+          }
         }}
         color={COLORS.accent}
         title="Submit"

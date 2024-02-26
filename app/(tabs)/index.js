@@ -4,8 +4,12 @@ import { globalStyles } from "../../styles/global";
 import { COLORS } from "../../styles/constants";
 import { Typography } from "../../components/Typography";
 import { StyledButton } from "../../components/StyledButton";
+import { useContext } from "react";
+import { UserContext } from "../../context/UserContext";
 
 export default function HomePage() {
+  const { user } = useContext(UserContext);
+  console.log("user", user);
   return (
     <ScrollView style={globalStyles.container}>
       <Typography
@@ -13,50 +17,20 @@ export default function HomePage() {
           alert("Typography");
         }}
         variant="heading"
-        style={{ color: "green" }}
       >
         World of movies
       </Typography>
-      <Typography tofu="sdjfh">
+      <Typography style={{ color: "green" }}>
+        {/* {user ? user.name : "Not logged in"} */}
+        {user?.name}
+      </Typography>
+      <Typography>
         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
         eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
         voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
         clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
         amet.
       </Typography>
-      <StyledButton
-        variant="primary"
-        onPress={() => {
-          alert("Hello from Homepage");
-        }}
-        onPressIn={() => {
-          console.log("Outer Press in");
-        }}
-        onPressOut={() => {
-          console.log("Outer Press out");
-        }}
-        xyz="abc"
-      >
-        Hello from Homepage
-      </StyledButton>
-      <StyledButton
-        onPress={() => {
-          alert("Don't click me again!");
-        }}
-      >
-        Don't click me again!
-      </StyledButton>
-      {/* <StyledButton variant="secondary">Hallo</StyledButton> */}
-
-      {/* <StyledButton>Hallo</StyledButton>
-      <StyledButton
-        onPress={() => {
-          alert("Test");
-        }}
-        variant="secondary"
-      >
-        Hallo
-      </StyledButton> */}
 
       <Link asChild style={globalStyles.link} href="movies">
         <Button color={COLORS.accent} title="Movies" />

@@ -10,7 +10,6 @@ export function Typography({
   style,
   ...restProps
 }) {
-  console.log(restProps);
   return (
     <Text style={{ ...styles[variant], ...style }} {...restProps}>
       {children}
